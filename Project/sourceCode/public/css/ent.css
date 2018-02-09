@@ -1,0 +1,62 @@
+/**
+ * TABS
+ *
+ * -------------------------------------------------------------------------------------------------
+ */
+.tabs > DIV {
+  /*border-top: 1px solid #c7c7c7*/
+  margin-top: 10px;
+  background: white !important;
+  border-bottom: 3px solid #E5E5E5 !important;
+
+  /*border-bottom: 4px solid #E95855 !important;*/
+}
+
+.tabs > DIV SPAN {
+  border-bottom: 4px solid #E5E5E5 !important;
+  color: #ccc !important;
+  font-weight: 300;
+  line-height: 186px !important;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+}
+
+.tabs UL.horizontal {
+  list-style: none outside none;
+  margin: 0;
+}
+
+.tabs LI.tabs_list {
+  background: white;
+  border-bottom: 4px solid #E5E5E5;
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+
+.tabs A {
+  color: #ccc;
+  display: block;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 14px 24px;
+  text-decoration: none;
+}
+
+.tabs LI:hover {
+  background: #286090;
+  border-bottom: 4px solid #337ab7;
+}
+
+.tabs LI:hover A {
+  color: white;
+}
+
+.tabs .active {
+  background: #286090 !important;
+  border-bottom: 4px solid #337ab7 !important;
+}
+
+.tabs .active A {
+  color: white !important;
+}

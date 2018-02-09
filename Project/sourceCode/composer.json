@@ -1,0 +1,16 @@
+{
+    "name": "resrequest/hotelBookingSystem",
+    "description": "Basic hotel reservation system",
+    "keywords": ["php5", "mySQl"],
+    "type": "project",
+    "require":{
+        "wixel/gump": "dev-master",
+        "sergeytsalkov/meekrodb": "*",
+        "nesbot/carbon": "^1.21",
+        "ircmaxell/password-compat": "^1.0"
+    }, 
+    "minimum-stability": "dev",
+    "config": {
+                "optimize-autoloader": true
+        }
+}
