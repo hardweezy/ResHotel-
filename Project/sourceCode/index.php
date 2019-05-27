@@ -1,9 +1,9 @@
 <?php
     require_once 'core/init.php';
     include 'includes/header.php';
-    
     include 'includes/slider.php';
-    ?>
+?>
+
 <div class="col-md-12 text-center checkAvailability" style="background-color: #344A71; padding:30px;">
     <form class="form-inline" role="form" method="GET" action="res-bookings.php" id="checkAvailabilityForm" data-parsley-validate>
         <div class="form-group">

@@ -2,7 +2,8 @@
     require_once 'core/init.php';
     include 'includes/header.php';
     if(isset($_GET['arrival']) && isset($_GET['departure'])){
-    ?>
+?>
+
 <div class="row">
     <div class="col-md-12">
         <div class="col-md-3">
@@ -136,9 +137,11 @@
         </form>
     </div>
 </div>
+
 <?php
     include 'includes/footer.php';
     }
     else{
     $helper->redirect('../');
-    }  ?>
+    }  
+?>
