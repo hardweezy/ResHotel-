@@ -1,18 +1,9 @@
 <?php
     require_once '../core/init.php';
-    /**
-     * checj if User SEsssion is active
-     * if Yes allow to view this page
-     * Else redirect to auth
-     */
     if($helper->isLoggedIn() == true)
     {
         $helper->redirect('../admin/');
     }
-    /**
-     * include the header file
-     * that contain all <head> elements
-     */
     require '../includes/header.php';
     ?>
 

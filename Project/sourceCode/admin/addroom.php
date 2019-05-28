@@ -1,18 +1,9 @@
 <?php
     include '../core/init.php';
-    /**
-     * checj if User SEsssion is active
-     * if Yes allow to view this page
-     * Else redirect to auth
-     */
     if($helper->isLoggedIn() == false)
     {
         $helper->redirect('login.php');
     }
-    /**
-     * include the header file
-     * that contain all <head> elements
-     */
     require '../includes/header.php';
     ?>
 <div class="row">
@@ -134,9 +125,5 @@
     </div>
 </div>
 <?php
-    /**
-     * include the footer file
-     * that contain all <script> elements
-     */
     require '../includes/footer.php';
     ?>

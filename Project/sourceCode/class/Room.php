@@ -2,9 +2,6 @@
 
 class Room
 {
-    public $post = array();
-    public $get = array();
-    
     /**
      * [addNewRoom This is called from the admin section
      * Used to save a new Room Type record
@@ -35,12 +32,6 @@ class Room
         
     }
     
-     /**
-     * Since Datatables is used, it is best to plug into the plugin
-     * How, use the table layout to display our created rooms
-     ** @param [array()]
-     * @return JSON array
-     */
     public function fetchRoomsJSON()
     {
         $sql = DB::query('SELECT DISTINCT r.id,r.name,r.number_of_rooms,
@@ -61,12 +52,6 @@ class Room
         ));
     }
     
-     /**
-     * Since Datatables is used, it is est to plug into the plugin
-     * How, use the table layout to display successfully booked rooms
-     ** @param [array()]
-     * @return JSON array
-     */
     public function fetchBookingsJSON()
     {
         $sql = DB::query('SELECT DISTINCT r.id,r.name,r.number_of_rooms,
@@ -90,12 +75,6 @@ class Room
         ));
     }
     
-     /**
-     * A simple foreach loop is called from the homepage
-     * to display the newest 4 rooms created
-     ** @param [array()]
-     * @return Associative array
-     */
     public function fetchRooms()
     {
         $sql = DB::query('SELECT DISTINCT r.id,r.name,
@@ -113,18 +92,6 @@ class Room
         endif;
     }
     
-     /**
-     * SQL query to perform the folowing
-     * Select all room records
-     * Inner join uploads table to get a matching picture
-     * Left Join reservations on the relationship keys
-     * Get rooms that are not reserved by checking if
-     * after left join there is any null value in room_id column
-     * if yes, display that as a search result to User
-     * to display the newest 4 rooms created
-     ** @param [array()]
-     * @return Associative array
-     */
     public function fetchRoomsFromSearch($get)
     {
         $gump   = new GUMP();
