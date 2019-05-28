@@ -7,20 +7,20 @@ $(document).ready(function() {
      */
     $("#departure").dateDropper({
         lock: "from",
-        minYear: 2015,
+        minYear: 2019,
         dropPrimaryColor: "#F87A54"
     });
 
-        /**
+    /**
      * arrival event to show calender
      * @type {String}
      */
     $("#arrival").dateDropper({
         lock: "from",
-        minYear: 2015
+        minYear: 2019
     });
 
-        /**
+    /**
      * @import nice-select plugin to beautify default search
      * @type {String}
      */
@@ -60,11 +60,7 @@ $(document).ready(function() {
                 }
             });
         }
-
-
-
     };
-
 
 
     /**
@@ -108,17 +104,12 @@ $(document).ready(function() {
                         });
                     }
                 },
-                error: function(response) {
-                    /**
-                     * Error with form submission
-                     * @type {String}
-                     */
+                error: function() {
                     ohSnap('Oh Snap, there is an error with your submission', {
                         color: 'red',
                         icon: 'icon-alert'
                     });
                 }
-
             })
             return false;
         } else {
@@ -150,45 +141,25 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(data) {
                     if (data.status == "success") {
-                        /**
-                         * Clear all input
-                         */
                         $("#btn-signup").attr("disabled", "true");
                         $("input[name=name]").val("");
                         $("input[name=email]").val("");
                         $("input[name=password]").val("");
 
-                        /**
-                         * [color description]
-                         * @type display notificatin before redirecting
-                         */
                         ohSnap(data.message, {
                             color: 'green',
                             icon: 'icon-alert'
                         });
-                        /**
-                         * [redirects]
-                         * @param  {String} ){  window.location.href [redirect to home]
-                         * @param  {[type]} 5000 [after 3 seconds]
-                         * @return {[type]}      [description]
-                         */
+
                         setTimeout(function() {
                             window.location.reload();
                         }, 3000);
                     } else if (data.status == "failed_validation") {
-                        /**
-                         * On failed Validation
-                         * @type {String}
-                         */
                         ohSnap(data.message, {
                             color: 'red',
                             icon: 'icon-alert'
                         });
                     } else if (data.status == "error") {
-                        /**
-                         * On invalid _csrf token
-                         * @type {String}
-                         */
                         ohSnap(data.message, {
                             color: 'red',
                             icon: 'icon-alert'
@@ -197,10 +168,6 @@ $(document).ready(function() {
 
                 },
                 error: function(response) {
-                    /**
-                     * Error with form submission
-                     * @type {String}
-                     */
                     ohSnap('Oh Snap, there is an error with your submission', {
                         color: 'red',
                         icon: 'icon-alert'
@@ -209,10 +176,6 @@ $(document).ready(function() {
             })
             return false;
         } else {
-            /**
-             * On error with form validation from parsley()
-             * @type {String}
-             */
             ohSnap('Oh Snap, there is an error with your submission', {
                 color: 'red',
                 icon: 'icon-alert'
@@ -264,7 +227,7 @@ $(document).ready(function() {
                     }
 
                 },
-                error: function(response) {
+                error: function() {
                     ohSnap('Oh Snap, there is an error with your submission', {
                         color: 'green',
                         icon: 'icon-alert'
@@ -295,54 +258,29 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(data) {
                     if (data.status == "success") {
-                        /**
-                         * Clear all input
-                         */
                         $("#btn-login").attr("disabled", "true");
                         $("input[name=email]").val("");
                         $("input[name=password]").val("");
 
-                        /**
-                         * [color description]
-                         * @type display notificatin before redirecting
-                         */
                         ohSnap(data.message, {
                             color: 'green',
                             icon: 'icon-alert'
                         });
-                        /**
-                         * [redirects]
-                         * @param  {String} ){  window.location.href [redirect to home]
-                         * @param  {[type]} 5000 [after 3 seconds]
-                         * @return {[type]}      [description]
-                         */
                         setTimeout(function() {
                             window.location.href = '../admin/'
                         }, 2000);
                     } else if (data.status == "fail") {
-                        /**
-                         * On failed response
-                         * @type {String}
-                         */
                         $("#btn-login").removeAttr("disabled");
                         ohSnap(data.message, {
                             color: 'red',
                             icon: 'icon-alert'
                         });
                     } else if (data.status == "failed_validation") {
-                        /**
-                         * On failed Validation
-                         * @type {String}
-                         */
                         ohSnap(data.message, {
                             color: 'red',
                             icon: 'icon-alert'
                         });
                     } else if (data.status == "error") {
-                        /**
-                         * On invalid _csrf token
-                         * @type {String}
-                         */
                         ohSnap(data.message, {
                             color: 'red',
                             icon: 'icon-alert'
@@ -351,10 +289,6 @@ $(document).ready(function() {
 
                 },
                 error: function(response) {
-                    /**
-                     * Error with form submission
-                     * @type {String}
-                     */
                     ohSnap('Oh Snap, there is an error with your submission', {
                         color: 'red',
                         icon: 'icon-alert'
@@ -363,10 +297,6 @@ $(document).ready(function() {
             })
             return false;
         } else {
-            /**
-             * On error with form validation from parsley()
-             * @type {String}
-             */
             ohSnap('Oh Snap, there is an error with your submission', {
                 color: 'red',
                 icon: 'icon-alert'
@@ -535,40 +465,21 @@ $(document).ready(function() {
             cache: false,
             success: function(data) {
                 if (data.status == "success") {
-                    /**
-                     * Clear all input
-                     */
-
-
                     $("#preReservationSummary").hide();
                     $("#reservationSummary").show().fadeIn(3000);
-
                     $("#reservationSummary").load('../includes/review-bookings.php');
 
-
-                    /**
-                     * [color description]
-                     * @type display notificatin before redirecting
-                     */
                     ohSnap(data.message, {
                         color: 'green',
                         icon: 'icon-alert'
                     });
 
                 } else if (data.status == "failed_validation") {
-                    /**
-                     * On failed Validation
-                     * @type {String}
-                     */
                     ohSnap(data.message, {
                         color: 'red',
                         icon: 'icon-alert'
                     });
                 } else if (data.status == "error") {
-                    /**
-                     * On invalid _csrf token
-                     * @type {String}
-                     */
                     ohSnap(data.message, {
                         color: 'red',
                         icon: 'icon-alert'
@@ -577,10 +488,6 @@ $(document).ready(function() {
 
             },
             error: function(response) {
-                /**
-                 * Error with submission from the server
-                 * @type {404-501 errors}
-                 */
                 ohSnap('Oh Snap, there is an error submitting your reservation', {
                     color: 'red',
                     icon: 'icon-alert'
@@ -619,14 +526,6 @@ $(document).ready(function() {
                 cache: false,
                 success: function(data) {
                     if (data.status == "success") {
-
-                        /**
-                         * if returned JSON status equal success
-                         * clear all input text on form
-                         * echo out returned message
-                         * redirect to HOme-Page
-                         */
-
                         $("#guestFirstName").val("");
                         $("#guestLastName").val("");
                         $("#guestEmail").val("");
@@ -646,19 +545,11 @@ $(document).ready(function() {
                         }, 6000);
 
                     } else if (data.status == "failed_validation") {
-                        /**
-                         * On failed Validation
-                         * @type {String}
-                         */
                         ohSnap(data.message, {
                             color: 'red',
                             icon: 'icon-alert'
                         });
                     } else if (data.status == "error") {
-                        /**
-                         * On invalid _csrf token
-                         * @type {String}
-                         */
                         ohSnap(data.message, {
                             color: 'red',
                             icon: 'icon-alert'
@@ -666,10 +557,6 @@ $(document).ready(function() {
                     }
                 },
                 error: function(response) {
-                    /**
-                     * Error with form submission
-                     * @type {String}
-                     */
                     ohSnap('Oh Snap, there is an error with your submission', {
                         color: 'red',
                         icon: 'icon-alert'
@@ -683,11 +570,6 @@ $(document).ready(function() {
             $("form#checkoutForm").unbind('submit');
 
         } else {
-            /**
-             * only trigger this if there is a problem with parsley Validation
-             * not returning true
-             * @type {404-501}
-             */
             ohSnap('Oh Snap, you have validation errors, kindly correct it', {
                 color: 'red',
                 icon: 'icon-alert'
@@ -700,12 +582,12 @@ $(document).ready(function() {
     $(document).on('click', '#homeCheckAvailability', function(e) {
         var slug = $(this).data('id');
         e.preventDefault();
-                            if (!e) return;
-                            console.log('#homeCheckAvailability');
-                            if( $('#checkAvailabilityForm').parsley().isValid()){
-                              $('form#checkAvailabilityForm').submit();
-
-                            }
+        
+        if (!e) return;
+        console.log('#homeCheckAvailability');
+        if( $('#checkAvailabilityForm').parsley().isValid()){
+            $('form#checkAvailabilityForm').submit();
+        }
     });
 
     /*

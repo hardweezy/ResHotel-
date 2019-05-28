@@ -37,37 +37,11 @@ DB::$user = 'root';
 DB::$password = '';
 DB::$dbName = 'reshotelsystem';
 
-/**
- * Create Instances of Helper Class
- */
+
 $helper = new Helper();
-
-/**
- * Creates instance of the CSRF class to add extra security to 
- * forms
- * @return md5 string [<description>]
- */
 $csrf = new CSRF_Protect();
-
-/**
- * Creates an instance of GUMP filter and validation
- */
 $gump = new GUMP();
-
-/**
- * creates an instance of Carbon DateTime
- */
 $carbon = new Carbon\Carbon();
-/**
- * Creates an instance of Authenticate class
- * Responsible for registering new User
- * Login  new User
- * Replace old Session Values with New ones
- * 
- */
 $auth = new Authenticate();
-/**
- * Creates an instance of Room class and make global
- */
 $room = new Room();
 
