@@ -4,9 +4,8 @@ Hotel Reservation System using PHP, HTML, CSS and JS
 ***************
 * Hotel Reservation System using PHP, HTML, CSS and JS
 * Version 1.0.3
-* @author Solomon
-* Host: 127.0.0.1 (MySQL 5.5.5-10.1.14-MariaDB)
-* Database: reshotelsystem
+* Host: 127.0.0.1
+* Database: reshotelsystem (MySQL 5.5.5-10.1.14-MariaDB)
 ****************
 
 
